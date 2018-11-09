@@ -18,5 +18,6 @@ public class HomeFoodApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HomeFoodApplication.class, args);
+		System.out.println("Hello");
 	}
 }
