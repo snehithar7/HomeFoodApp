@@ -2,9 +2,8 @@ package org.java.food;
 
 import java.util.Properties;
 
-import javax.activation.DataSource;
-//import javax.sql.DataSource;
-
+import javax.sql.DataSource;
+ 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -33,7 +32,7 @@ public class HomeFoodApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HomeFoodApplication.class, args);
-		System.out.println("Hello");
+		
 	}
 	@Bean(name = "dataSource")
     public DataSource getDataSource() {
@@ -47,7 +46,7 @@ public class HomeFoodApplication {
  
         System.out.println("## getDataSource: " + dataSource);
  
-        return (DataSource) dataSource;
+        return dataSource;
     }
  
     @Autowired
@@ -65,7 +64,7 @@ public class HomeFoodApplication {
  
         // Package contain entity classes
         factoryBean.setPackagesToScan(new String[] { "" });
-        factoryBean.setDataSource((javax.sql.DataSource) dataSource);
+        factoryBean.setDataSource(dataSource);
         factoryBean.setHibernateProperties(properties);
         factoryBean.afterPropertiesSet();
         //
@@ -82,6 +81,3 @@ public class HomeFoodApplication {
         return transactionManager;
     }
 }
-
-
-
