@@ -27,14 +27,14 @@ HibernateJpaAutoConfiguration.class
 
 public class HomeFoodApplication {
 	
-	  @Autowired
-	    private Environment env;
+	  /*@Autowired
+	    private Environment env;*/
 
 	public static void main(String[] args) {
 		SpringApplication.run(HomeFoodApplication.class, args);
 		
 	}
-	@Bean(name = "dataSource")
+	/*@Bean(name = "dataSource")
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
  
@@ -79,5 +79,5 @@ public class HomeFoodApplication {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
  
         return transactionManager;
-    }
+    }*/
 }
