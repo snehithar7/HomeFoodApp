@@ -7,9 +7,40 @@
 </head>
 <body>
 <th:block th:include="/header"></th:block>
+<a th:href="@{/}">Home</a>
+ 
+     | &nbsp;
+ 
+   <a th:href="@{/members}">Members</a>
+ 
+     | &nbsp;
+ 
+   <a th:href="@{/register}">Register</a>
 
 <div class ="page-title">Login Page</div>
 <br>
-<div class ="login-container">Enter UserName and Passsword </div>
+<div class ="login-container">Enter Your UserName and Passsword </div>
 </body>
+
+<form method ="POST">
+<table>
+<tr>
+   <td>UserName </td>
+   <td><input  name ="userName"/>
+</tr>
+<tr>
+   <td>Password</td>
+   <td><input type ="password" name="password"/></td>
+</tr>
+<br>
+<tr>
+   <td>
+      <input type ="submit" value ="Login"/>
+      <input type ="Reset" value ="Reset"/>
+</td>
+</tr>
+
+</table>
+</form>
+
 </html>
