@@ -20,10 +20,9 @@ public class WebSecurity extends  WebSecurityConfigurerAdapter {
 		    .permitAll();
 		
     http.authorizeRequests().antMatchers("/admin/orderList", "/admin/order", "/admin/accountInfo")//
-         .access("hasAnyRole('ROLE_USER', 'ROLE_CHEF')");
+         .access("hasRole( 'ROLE_CHEF')");
 
-   // Pages only for CHEF
-   http.authorizeRequests().antMatchers("/admin/product").access("hasRole('ROLE_CHEF')");
+  
    http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
    http.authorizeRequests().and().formLogin()
    .loginProcessingUrl("/check")

@@ -10,5 +10,17 @@ public class MainController {
 		return "index";
 		
 	}
+	
+	 @RequestMapping("/403")
+	   public String accessDenied() {
+	      return "/403";
+	   }
+	 
+	  
+	   
+	   @RequestMapping("/contactUs")
+	   public String contact() {
+	      return "contactUs";
+	   }
 
 }
