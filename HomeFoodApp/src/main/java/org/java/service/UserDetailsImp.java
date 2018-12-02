@@ -3,7 +3,7 @@ package org.java.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.java.DAO.AccountD;
+import org.java.dao.AccountD;
 import org.java.entity.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;

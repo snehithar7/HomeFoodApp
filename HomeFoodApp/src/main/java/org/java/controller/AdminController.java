@@ -6,6 +6,7 @@ import org.java.dao.ItemD;
 import org.java.dao.OrderD;
 import org.java.model.OrderDetailInformation;
 import org.java.model.OrderInformation;
+import org.java.util.PaginationResult;
 import org.java.validator.CustomerFormValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -18,8 +19,8 @@ public class AdminController {
 	@Autowired
 	   private OrderD orderD;
 	 
-	   @Autowired
-	   private ItemD productD;
+	  
+	
 	   @Autowired
 	   private CustomerFormValidator customerFormValidator;
 	 
@@ -45,5 +46,23 @@ public class AdminController {
 	      model.addAttribute("orderInfo", orderInfo);
 	 
 	      return "order";
+	   }
+	   
+	   @RequestMapping(value = { "/admin/orderList" }, method = RequestMethod.GET)
+	   public String orderList(Model model, //
+	         @RequestParam(value = "page", defaultValue = "1") String pageStr) {
+	      int page = 1;
+	      try {
+	         page = Integer.parseInt(pageStr);
+	      } catch (Exception e) {
+	      }
+	      final int MAX_RESULT = 5;
+	      final int MAX_NAVIGATION_PAGE = 10;
+	 
+	      PaginationResult<OrderInformation> paginationResult //
+	            = orderD.listOrderInfo(page, MAX_RESULT, MAX_NAVIGATION_PAGE);
+	 
+	      model.addAttribute("paginationResult", paginationResult);
+	      return "orderList";
 	   }
 }
