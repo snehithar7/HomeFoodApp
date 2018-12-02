@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+   <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+ 
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js}"></script>
+           
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+   <head>
+      <meta charset="UTF-8">
+      <title>Order Info</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+   </head>
+   <body>
+      <th:block th:include="Header"></th:block>
+      
+       
+      <div class="page-title">Food Orders</div>
+       
+      <div class="customer-info-container">
+         <h3>Customer Information:</h3>
+         <ul>
+            <li>Name: <span th:utext="${orderInformation.customerName}"></span></li>
+            <li>Email: <span th:utext="${orderInformation.customerEmail}"></span></li>
+            <li>Phone: <span th:utext="${orderInformation.customerPhone}"></span></li>
+            <li>Address: <span th:utext="${orderInformation.customerAddress}"></span></li>
+         </ul>
+         <h3>Order Summary:</h3>
+         <ul>
+            <li>Total:
+               <span class="total" th:utext="${#numbers.formatDecimal(orderInfo.amount,3,2,'COMMA')}">         
+               </span>
+            </li>
+         </ul>
+      </div>
+      <br/>
+      <table id ="orderlist" border="1" style="width:100%">
+         <tr>
+            <th>Product Code</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Amount</th>
+         </tr>
+         <tr th:each="orderDetailInformation : ${orderInfo.details}">
+            <td th:utext="${orderDetailInformation.productCode}"></td>
+            <td th:utext="${orderDetailInformation.productName}"></td>
+            <td th:utext="${orderDetailInformation.quanity}"></td>
+            <td th:utext="${#numbers.formatDecimal(orderDetailInformation.price,3,2,'COMMA')}"></td>
+            <td th:utext="${#numbers.formatDecimal(orderDetailInformation.amount,3,2,'COMMA')}"></td>
+         </tr>
+      </table>
+            
+   </body>
+   
+   <style>
+   body{
+    background: url([[@{/images/Food_Background.png}]]);
+    background-size : cover;
+    }
+   </style>
+</html>

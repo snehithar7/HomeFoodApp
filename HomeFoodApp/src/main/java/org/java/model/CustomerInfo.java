@@ -48,7 +48,7 @@ public String getPhone() {
 public void setPhone(String phone) {
 	this.phone = phone;
 }
-public Boolean getValid() {
+public Boolean isValid() {
 	return valid;
 }
 public void setValid(Boolean valid) {

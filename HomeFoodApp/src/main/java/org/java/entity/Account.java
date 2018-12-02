@@ -11,8 +11,8 @@ import javax.persistence.Table;
 @Table(name ="Accounts")
 public class Account implements Serializable{
 
-	private static final long serialVersionUID = 4L;
-	
+
+private static final long serialVersionUID = 6923414903315035015L;
 public static final String ROLE_ADMIN ="ADMIN";
 public static final String ROLE_CHEF ="CHEF";
 
