@@ -1,4 +1,4 @@
-package org.java.DAO;
+package org.java.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
