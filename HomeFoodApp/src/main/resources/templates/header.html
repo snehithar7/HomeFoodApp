@@ -1,5 +1,5 @@
  <nav class="navbar navbar-default navbar-fixed-top"       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <div class="container">
 	<div class="row">
     	<div class="col-xs-3">
@@ -8,7 +8,7 @@
         		<span class="icon-bar"></span>
         		<span class="icon-bar"></span> 
       		</button>
-      		<a class="navbar-brand" href="#">Logo</a>
+      		<a class="navbar-brand" href="#">HomeFood</a>
  		</div>
   		<div class="col-xs-9">
   			<div class="collapse navbar-collapse" id="myNavbar">
@@ -19,13 +19,14 @@
       				</th:block>
        				<li sec:authorize="!isAuthenticated()"><a th:href="@{/admin/login}">Login</a></li>
       				<li><a th:href="@{/}">Home</a><li>
-      				<li sec:authorize="!isAuthenticated()"><a th:href="@{/productList}">Food Items</a></li>
-					<!-- <li><a th:href="@{/productList}">Food Items</a></li> -->
+      				<li sec:authorize="!isAuthenticated()"><a th:href="@{/foodMenu}">Food Items</a></li>
+					<!-- <li><a th:href="@{/foodMenu}">Food Items</a></li> -->
 					<li><a th:href="@{/shoppingCart}">My Cart</a></li>
 					<li><a th:href="@{/contactUs}">Contact</a></li>
+					<li><a th:href="@{/aboutUs}">About Us</a></li>
 					<li><a sec:authorize="hasRole('ROLE_CHEF')" th:href="@{/admin/orderList}">Order List</a></li>
 					<li><a sec:authorize="hasRole('ROLE_CHEF')" th:href="@{/admin/pListe}">Food List</a></li>
-					
+					<!--  <li><th:block sec:authorize="hasRole('ROLE_MANAGER')"><a th:href="@{/admin/product}">Create Product</a></th:block></li>-->
 			        
       			</ul>
     		</div>

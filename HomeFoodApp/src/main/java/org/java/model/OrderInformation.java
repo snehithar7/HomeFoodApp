@@ -11,18 +11,18 @@ public class OrderInformation {
     private double amount;
  
     private String customerName;
+    private String customerAddress;
     private String customerEmail;
     private String customerPhone;
-    private String customerAddress;
-   
  
     private List<OrderDetailInformation> details;
+   /* private List<OrderInfo> ldetails;*/
  
     public OrderInformation() {
  
     }
  
-
+    // Using for Hibernate Query.
     public OrderInformation(String id, Date orderDate, int orderNum, //
             double amount, String customerName, String customerAddress, //
             String customerEmail, String customerPhone) {
@@ -108,5 +108,7 @@ public class OrderInformation {
     public void setDetails(List<OrderDetailInformation> details) {
         this.details = details;
     }
+
+	
  
 }

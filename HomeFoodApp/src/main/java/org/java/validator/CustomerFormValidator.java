@@ -1,4 +1,5 @@
 
+
 package org.java.validator;
 
 import org.apache.commons.validator.routines.EmailValidator;
@@ -15,8 +16,8 @@ public class CustomerFormValidator implements Validator {
  
    // This validator only checks for the CustomerForm.
    @Override
-   public boolean supports(Class<?>  cl) {
-      return cl == CustomerForm.class;
+   public boolean supports(Class<?> clazz) {
+      return clazz == CustomerForm.class;
    }
  
    @Override

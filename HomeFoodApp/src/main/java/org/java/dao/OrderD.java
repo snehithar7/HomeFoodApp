@@ -15,7 +15,7 @@ import org.java.model.CartLineInformation;
 import org.java.model.CustomerInfo;
 import org.java.model.OrderDetailInformation;
 import org.java.model.OrderInformation;
-import org.java.util.PaginationResult;
+import org.java.utils.PaginationResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -84,7 +84,7 @@ public class OrderD {
         session.flush();
     }
  
-    // @page = 1, 2, ...
+    
     public PaginationResult<OrderInformation> listOrderInfo(int page, int maxResult, int maxNavigationPage) {
         String sql = "Select new " + OrderInformation.class.getName()//
                 + "(ord.id, ord.orderDate, ord.orderNum, ord.amount, "

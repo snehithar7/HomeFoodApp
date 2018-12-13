@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
-          th:href="@{http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+<link href="https://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{https://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
           rel="stylesheet" media="screen" />
  
-    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
-            th:src="@{http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js}"></script>
+    <script src="https://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{https://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js}"></script>
            
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
    <head>
@@ -14,14 +14,37 @@
       <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
    </head>
    <body>
-      <th:block th:include="/_header"></th:block>
+      <th:block th:include="header"></th:block>
       
        
       <div class="page-title">Confirmation</div>
       <div class="customer-info-container">
-         <h3>Customer Information:</h3>
-         <ul>
-            <li>Name	: <span th:utext="${myCart.customerInfo.name}"></span></li>
+         <h3>Your Information:</h3>
+         
+         <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-success">
+      <th scope="row" th:utext="${myCart.customerInfo.name}"></th>
+      <td th:utext="${myCart.customerInfo.email}"></td>
+      <td th:utext="${myCart.customerInfo.phone}"></td>
+      <td th:utext="${myCart.customerInfo.address}"></td>
+      <td th:utext="${myCart.quantityTotal}"></td>
+      <td th:utext="${#numbers.formatDecimal(myCart.amountTotal,3,2,'COMMA')}"></td>
+    </tr>
+  </tbody>
+</table>
+        <!--   <ul>
+            <li>	: <span th:utext="${myCart.customerInfo.name}"></span></li>
             <li>Email	: <span th:utext="${myCart.customerInfo.email}"></span></li>
             <li>Phone	: <span th:utext="${myCart.customerInfo.phone}"></span></li>
             <li>Address	: <span th:utext="${myCart.customerInfo.address}"></span></li>
@@ -34,26 +57,26 @@
                   th:utext="${#numbers.formatDecimal(myCart.amountTotal,3,2,'COMMA')}">  
                </span>
             </li>
-         </ul>
+         </ul>-->
       </div>
       <form method="POST" th:action="@{/shoppingCartConfirmation}">
-         <!-- Edit Cart -->
-         <a class="navi-item" th:href="@{/shoppingCart}">
+         
+         <a class="navi-item btn btn-primary" th:href="@{/shoppingCart}">
          Edit Cart
          </a>
          <!-- Edit Customer Info -->
-         <a class="navi-item" th:href="@{/shoppingCartCustomer}">
+         <a class="navi-item btn btn-primary" th:href="@{/shoppingCartCustomer}">
          Edit Customer Info
          </a>
          <!-- Send/Save -->
-         <input type="submit" value="Send" class="button-send-sc" />
+         <input type="submit" value="Confirm Order" class="navi-item btn btn-primary" />
       </form>
       <div class="container">
          <div class="product-preview-container" th:each="cartLineInfo : ${myCart.cartLines}" >
             <ul>
                <li>
                   <img class="product-image"
-                     src="@{|/productImage?code=${cartLineInfo.productInfo.code}|}" />
+                    th:src="@{|/productImage?code=${cartLineInfo.productInfo.code}|}" />
                </li>
                <!-- <li>
                   Code: <span th:utext="${cartLineInfo.productInfo.code}"></span>
@@ -77,10 +100,5 @@
       </div>
         </body>
         
-         <style>
-   body{
-    background: url([[@{/images/Food_Background.png}]]);
-    background-size: cover;
-    }
-   </style>
+       
 </html>

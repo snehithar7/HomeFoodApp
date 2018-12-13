@@ -1,4 +1,5 @@
  
+
 package org.java.dao;
 
 import java.io.IOException;
@@ -11,8 +12,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.java.entity.Item;
 import org.java.form.ItemForm;
-import org.java.model.ItemInfo;
-import org.java.util.PaginationResult;
+import org.java.model.ProductInfo;
+import org.java.utils.PaginationResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
@@ -38,12 +39,12 @@ public class ItemD {
         }
     }
  
-    public ItemInfo findProductInfo(String code) {
+    public ProductInfo findProductInfo(String code) {
         Item product = this.findProduct(code);
         if (product == null) {
             return null;
         }
-        return new ItemInfo(product.getCode(), product.getName(), product.getPrice());
+        return new ProductInfo(product.getCode(), product.getName(), product.getPrice());
     }
  
     @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
@@ -84,9 +85,9 @@ public class ItemD {
         session.flush();
     }
  
-    public PaginationResult<ItemInfo> queryItems(int page, int maxResult, int maxNavigationPage,
+    public PaginationResult<ProductInfo> queryProducts(int page, int maxResult, int maxNavigationPage,
             String likeName) {
-        String sql = "Select new " + ItemInfo.class.getName() //
+        String sql = "Select new " + ProductInfo.class.getName() //
                 + "(p.code, p.name, p.price) " + " from "//
                 + Item.class.getName() + " p ";
         if (likeName != null && likeName.length() > 0) {
@@ -95,16 +96,16 @@ public class ItemD {
         sql += " order by p.createDate desc ";
         // 
         Session session = this.sessionFactory.getCurrentSession();
-        Query<ItemInfo> query = session.createQuery(sql, ItemInfo.class);
+        Query<ProductInfo> query = session.createQuery(sql, ProductInfo.class);
  
         if (likeName != null && likeName.length() > 0) {
             query.setParameter("likeName", "%" + likeName.toLowerCase() + "%");
         }
-        return new PaginationResult<ItemInfo>(query, page, maxResult, maxNavigationPage);
+        return new PaginationResult<ProductInfo>(query, page, maxResult, maxNavigationPage);
     }
  
-    public PaginationResult<ItemInfo> queryProducts(int page, int maxResult, int maxNavigationPage) {
-        return queryItems(page, maxResult, maxNavigationPage, null);
+    public PaginationResult<ProductInfo> queryProducts(int page, int maxResult, int maxNavigationPage) {
+        return queryProducts(page, maxResult, maxNavigationPage, null);
     }
  
 }

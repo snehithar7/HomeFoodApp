@@ -20,8 +20,22 @@ h3 {
     color: white;
     font-size: bold;
 }
-  
 
+.padding-left {
+	padding-left :50px;
+}
+  
+}
+.menu-container {
+    text-align: right;
+    margin: 10px 5px;
+}
+.menu-container a {
+    margin: 5px 5px 5px 10px;
+    color: #004d99;
+    font-weight: bold;
+    text-decoration: none;
+}
   
 .site-name {
     font-size:200%;
@@ -40,13 +54,21 @@ h3 {
     margin-top: 60px;
 }
   
-.demo-container, .login-container, .account-container {
+.demo-container, .account-container {
     border: 1px solid #ccc;
     text-align: left;
     float: left;
     margin:120px 0px;
     background-color:aliceblue;
 }
+
+ .login-container{   border: 1px solid #ccc;
+    text-align: left;
+    float: left;
+    margin:120px 0px;
+    background-color:floralwhite;
+ }
+  
   
 .customer-info-container {
     text-align: left;
@@ -55,23 +77,24 @@ h3 {
     background-color:aliceblue;
 }
 .product-preview-container {
-    border: 1px solid #ccc;
     padding: 5px;
     width: 250px;
     margin: 10px ;
     display: inline-block;
     text-align:left;
-    background-color: aliceblue;
 }
   
 .product-preview-container input {
     width: 50px;
 }
-  
+ 
+.align-rgt {
+	text-align: right;
+}
   
 .product-image {
-    width: 120px;
-    height: 80px;
+    width: 250px;
+    height: 160px;
 }
   
 ul {
@@ -122,10 +145,10 @@ table td {
 
 
 .page-title{
-	margin-top: 60px;
-
+margin-top: 60px;
 text-align:center;
 font-size:50px;
+
 
 }
 body{
@@ -195,3 +218,23 @@ background-color:orange;
     background-color: #4CAF50;
     color: white;
 }
+.description{
+    position: absolute;
+    top: 30%;
+    margin: auto;
+    padding: 2em;
+}
+.description h1{
+ color:#F97300 ;
+  text-align:left;
+}
+.description p{
+ color:#666;
+ font-size: 20px;
+ width: 50%;
+ line-height: 1.5;
+ text-align:left;
+}
+
+
+

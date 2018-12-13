@@ -1,14 +1,12 @@
 package org.java.model;
-
+ 
 import java.util.ArrayList;
 import java.util.List;
-
-
-
+ 
 public class CartInformation {
-	
-	private int orderNum;
-	 
+ 
+    private int orderNum;
+ 
     private CustomerInfo customerInfo;
  
     private final List<CartLineInformation> cartLines = new ArrayList<CartLineInformation>();
@@ -46,13 +44,13 @@ public class CartInformation {
         return null;
     }
  
-    public void addItem(ItemInfo itemInfo, int quantity) {
-        CartLineInformation line = this.findLineByCode(itemInfo.getCode());
+    public void addProduct(ProductInfo productInfo, int quantity) {
+        CartLineInformation line = this.findLineByCode(productInfo.getCode());
  
         if (line == null) {
             line = new CartLineInformation();
             line.setQuantity(0);
-            line.setItemInfo(itemInfo);
+            line.setProductInfo(productInfo);
             this.cartLines.add(line);
         }
         int newQuantity = line.getQuantity() + quantity;
@@ -79,8 +77,8 @@ public class CartInformation {
         }
     }
  
-    public void removeProduct(ItemInfo itemInfo) {
-        CartLineInformation line = this.findLineByCode(itemInfo.getCode());
+    public void removeProduct(ProductInfo productInfo) {
+        CartLineInformation line = this.findLineByCode(productInfo.getCode());
         if (line != null) {
             this.cartLines.remove(line);
         }
@@ -119,5 +117,5 @@ public class CartInformation {
         }
  
     }
-
+ 
 }

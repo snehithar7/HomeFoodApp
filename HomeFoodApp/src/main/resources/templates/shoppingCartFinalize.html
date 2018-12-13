@@ -1,9 +1,11 @@
-<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
-          th:href="@{http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="https://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{https://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
           rel="stylesheet" media="screen" />
  
-    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
-            th:src="@{http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js}"></script>
+    <script src="https://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{https://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js}"></script>
            
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
    <head>
@@ -25,10 +27,10 @@
       -->
   <div class="jumbotron text-xs-center">
   <h1 class="display-3">Thank You for the order!</h1>
-  
+  <h3 class="lead"><strong>Your order number is: <span th:utext="${lastOrderedCart.orderNum}"></span></strong> </h3>
   
   <p>
-    Having trouble? <a href="">ContactUs</a>
+    Having trouble? <a th:href="@{/contactUs}">ContactUs</a>
   </p>
   
 </div>

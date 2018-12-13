@@ -1,5 +1,4 @@
-
-package org.java.util;
+package org.java.utils;
 
 import java.util.ArrayList;
 import java.util.List;

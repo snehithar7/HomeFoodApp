@@ -1,7 +1,45 @@
-<div class="container">
-<div class="row">
-<div class="col-xs-12">
-<h1>Contact Us</h1>
-</div>
-</div>
-</div>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="https://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{https://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+ 
+    <script src="https://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{https://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js}"></script>
+           
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+<head>
+<meta charset="UTF-8">
+<title>Contact Us</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<body>
+<th:block th:include="header"></th:block>
+       <div class="row margin-top">
+       <div class="col-xs-12">
+        <h1>Contact Us</h1>
+       </div>
+       </div>
+       <div class="row">
+       <div class="col-xs-6 contact-container">
+       <h2> New Jersey</h2>
+       <p> 5 Prescott st</p>
+       <p> Edsion, New Jersey, 08817 </p>
+       <p>USA</p>
+       </div>
+       <div class="col-xs-6 contact-container">
+       <h2>Boston</h2>
+       <p> 2309 311 lowell st</p>
+       <p> Andover, MA, 01810 </p>
+       <p>USA</p>
+       </div>
+       </div>
+</body>
+<style>
+   body{
+    background: url([[@{/images/Food_Background.png}]]);
+    background-size : cover;
+    }
+   </style>
+
+</html>

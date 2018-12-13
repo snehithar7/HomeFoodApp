@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
-          th:href="@{http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+<link href="https://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{https://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
           rel="stylesheet" media="screen" />
  
-    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
-            th:src="@{http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js}"></script>
+    <script src="https://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{https://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js}"></script>
            
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
    <head>
@@ -14,26 +14,25 @@
       <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
    </head>
    <body>
-      <th:block th:include="/_header"></th:block>
-     <div class="container"> 
-	     <div class="login-container">
-	    	<div class="row">
+      <th:block th:include="header"></th:block>
+	    	<div class="row margin-top">
       		   <div class="col-xs-12">
-      			  <h1>Login  Page</h1> 
+      			  <h1 align ="center">Login  Page</h1> 
          		  <h3>Please enter your UserName and password</h3>
-         		
+         		<br>
          		
          		    <th:block th:if="${#session != null && #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}">
              		<div th:if= "${#request.getParameter('error') == 'true'}" style="color: red; margin: 10px 0px;">
-                		Login Failed!!!<br /> Reason :
-                	    	<span th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}"></span>
+                		Login Failed,Correct your details<br /> 
+                		<!-- Reason :
+                	    	<span th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}"></span> -->
                     </div>
                     </th:block>
           
          <form 
             th:action="@{/j_spring_security_check}" method="POST">
             
-              <div class="form-group">
+              <div class="form-group form-inline">
                     <label for="username">Username</label>:
                     <input type="text"
                            id="userName"
@@ -44,7 +43,7 @@
                 </div>
                 
                 
-                <div class="form-group">
+                <div class="form-group form-inline">
                     <label for="password">Password</label>:
                     <input type="password"
                            id="password"
@@ -52,7 +51,7 @@
                            class="form-control"
                            placeholder="Password">
                 </div>
-                <div class="form-inline">
+                <div class="form-inline padding-left">
                     
                         
                             <input type="submit"
@@ -76,8 +75,6 @@
 
                     </div>
                 </div>
-           </div>
-    </div>
      
    </body>
    <style>

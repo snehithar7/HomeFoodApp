@@ -1,26 +1,26 @@
-package org.java.form;
+package org.java.model;
  
 import org.java.entity.Item;
-import org.springframework.web.multipart.MultipartFile;
  
-public class ItemForm {
+public class ProductInfo {
     private String code;
     private String name;
     private double price;
  
-    private boolean newProduct = false;
- 
-    // Upload file.
-    private MultipartFile fileData;
- 
-    public ItemForm() {
-        this.newProduct= true;
+    public ProductInfo() {
     }
  
-    public ItemForm(Item product) {
+    public ProductInfo(Item product) {
         this.code = product.getCode();
         this.name = product.getName();
         this.price = product.getPrice();
+    }
+ 
+    
+    public ProductInfo(String code, String name, double price) {
+        this.code = code;
+        this.name = name;
+        this.price = price;
     }
  
     public String getCode() {
@@ -45,22 +45,6 @@ public class ItemForm {
  
     public void setPrice(double price) {
         this.price = price;
-    }
- 
-    public MultipartFile getFileData() {
-        return fileData;
-    }
- 
-    public void setFileData(MultipartFile fileData) {
-        this.fileData = fileData;
-    }
- 
-    public boolean isNewProduct() {
-        return newProduct;
-    }
- 
-    public void setNewProduct(boolean newProduct) {
-        this.newProduct = newProduct;
     }
  
 }
