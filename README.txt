@@ -11,7 +11,7 @@ Database tool	: PgAdmin
 Deployment	:Heroku
 
 
-Heroku deployment:https://dashboard.heroku.com/apps/homefoodapp
+Heroku deployment:https://homefoodapp.herokuapp.com/
 username and password for chef:
 Username:chefsathvik
 Password:s1234
